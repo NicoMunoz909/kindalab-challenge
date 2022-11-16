@@ -1,0 +1,38 @@
+.container {
+  width: 400px;
+  text-align: left;
+  margin: auto;
+  margin-top: 20px;
+  padding: 0 20px 0 20px;
+  border: 2px solid #615f68cc;
+  box-shadow: 0px 0px 1px 3px #615f68;
+}
+
+.container h2 {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #615f68cc;
+  color: white;
+}
+
+.container img {
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+
+.container img:hover {
+  cursor: pointer;
+}
+
+.container p {
+  margin: 0;
+  line-height: 20px;
+}
+
+.ingredients {
+  margin-top: 30px;
+  margin-bottom: 30px
+}
