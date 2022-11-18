@@ -6,12 +6,12 @@ import CardDetailed from './Components/CardDetailed';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<App />} />
         <Route path='/:id' element={<CardDetailed />} />
       </Routes>
     </BrowserRouter>
-  // </React.StrictMode>
+  </React.StrictMode>
 );

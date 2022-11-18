@@ -1,26 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router'
+import React from 'react'
+import { useNavigate, useLocation } from 'react-router'
 import styles from './cardDetailed.module.css'
 import logo from '../../logo.png'
-import { ThreeDots } from 'react-loader-spinner'
 
 const Detail = () => {
 
-  const params = useParams();
   const navigate = useNavigate();
-  const [cocktail, setCocktail] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true)
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${params.id}`)
-    .then(res => res.json())
-    .then(data => {
-      setIsLoading(false)
-      setCocktail(data.drinks[0])
-    })
-    .catch(err => console.log(err))
-  }, [])
+  const location = useLocation();
+  const cocktail = location.state?.cocktail
 
   let i = 1;
   const ingredients = []
@@ -35,7 +22,6 @@ const Detail = () => {
       <header className="App-header">
         <img onClick={() => navigate('/')} src={logo} className="App-logo" alt="logo" />
       </header>
-      {isLoading ? <ThreeDots wrapperStyle={{ display: 'block', width: 'fit-content' , margin: 'auto' }} color='#615f68' /> :
       <div className={styles.container}>
         <h2>{cocktail.strDrink}</h2>
         <img src={cocktail.strDrinkThumb} alt="" />
@@ -47,7 +33,6 @@ const Detail = () => {
         <li>How to Prepare</li>
         <p>{cocktail.strInstructions}</p>
       </div>
-      }
     </div>
   )
 }

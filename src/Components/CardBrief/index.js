@@ -1,17 +1,7 @@
-import { React, useState, useEffect} from 'react'
+import { React } from 'react'
 import styles from './cardBrief.module.css'
 
-const CardBrief = ({ id }) => {
-
-  const [cocktail, setCocktail] = useState({})
-  console.log('card', id)
-
-  useEffect(() => {
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
-    .then(res => res.json())
-    .then(data => setCocktail(data.drinks[0]))
-    .catch(err => console.log(err))
-  }, [])
+const CardBrief = ({ cocktail }) => {
 
   let i = 2;
 
